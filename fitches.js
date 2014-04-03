@@ -2,7 +2,7 @@
 
 $(finction(){
   // для начала забираем адресс страницы и отрезаем оттуда домен
-  var a = location.href.substr(19);
+  var a = location.href.substr(location.href.indexOf('/',7));
   // перебираем верхние элементы навигации
   $('.menu-sitemap-tree>ul>li').each(function(){
     // првоеряем адресс ссылки - долэжен совпадать с нашим адресом 
@@ -20,7 +20,7 @@ $(finction(){
 
 $(finction(){
   $('.menu-sitemap-tree>ul>li').each(function(){
-    if( $('a', this).attr('href') == location.href.substr(19) ){ 
+    if( $('a', this).attr('href') == location.href.substr(location.href.indexOf('/',7)) ){ 
       $(this).removeClass('close'); return false
     } 
   }) 
